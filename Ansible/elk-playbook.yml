@@ -1,0 +1,47 @@
+---
+  - name: ELK Playbook
+    hosts: elk
+    remote_user: azadmin
+    become: true
+    tasks:
+
+    - name: Install Docker.io
+      apt:
+        force_apt_get: yes
+        update_cache: yes
+        name: docker.io
+        state: present
+
+    - name: Install Python3-pip
+      apt:
+        force_apt_get: yes
+        name: python3-pip
+        state: present
+
+    - name: Install Docker Python Module
+      pip:
+        name: docker
+        state: present
+
+    - name: Increase Virtual Memory
+      sysctl:
+        name: vm.max_map_count
+        value: '262144'
+        state: present
+
+    - name: Download and Launch a Docker ELK Container
+      docker_container:
+        name: elk
+        image: sebp/elk:761
+        state: started
+        restart_policy: always
+        published_ports:
+          -  5601:5601
+          -  9200:9200
+          -  5044:5044
+
+    - name: Enable Docker Service
+      systemd:
+        name: docker
+        enabled: yes
+
