@@ -68,7 +68,7 @@ The playbook implements the following tasks:
 - Download and Launch Docker ELK Container
 - Enable Docker Service
 
-The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
+The following screenshot displays the result of running `sudo docker ps` after successfully configuring the ELK instance.
 
 ![ELK_Docker.png](Images/ELK_Docker.png)
 
@@ -94,18 +94,20 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 
 - The Ansible host file will need to be udpated to determine which web servers you wish install the beats on. Update the host file with the private IP's 
-- Copy the desired playbook files from this README to /etc/ansible/roles/.
-- Download the config files for the beats to /etc/ansible/files/.
-  Filebeat 'curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/files/filebeat-config.yml'
-  Metricbeat 'curl https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/files/metricbeat-config.yml' 
+- Copy the desired playbook files from this README to `/etc/ansible/roles/`.
+- Download the config files for the beats to `/etc/ansible/files/`.
+  Filebeat `curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/files/filebeat-config.yml`
+  Metricbeat `curl https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/files/metricbeat-config.yml` 
 
 - Update the two items below in each beat-config.yml
-  - Include the private IP of the ELK server and use the default logon credentials under the Elasticsearch output. *Note: Port 9200 may not be needed in the IP address.
+  - Include the private IP of the ELK server and use the default logon credentials under the Elasticsearch output. 
+  *Note: Port 9200 may not be needed in the IP address.
 ![Filebeat_Config_01.png](Images/filebeat_config_01.png)
-  - Add the private IP of the ELK server under Kibana. *Note: Port 5601 may not be needed in the IP address.
+  - Add the private IP of the ELK server under Kibana. 
+  *Note: Port 5601 may not be needed in the IP address.
 ![Filebeat_Config_02.png](Images/filebeat_config_02.png)  
 
-- From the /etc/ansible/roles/ directory run the commands below to install each beat. 
+- From the `/etc/ansible/roles/` directory run the commands below to install each beat. 
   Filebeat 'ansible-playbook filebeat-playbook.yml'
   Metricbeat 'ansible-playbook metricbeat-playbook.yml'
 
