@@ -98,13 +98,14 @@ SSH into the control node and follow the steps below:
 
 - Copy the desired playbook files from this README to `/etc/ansible/roles/`.
 
+
 >Setup ELK
   - From the `/etc/ansible/roles/` directory run the command below to setup the ELK server.
     
     `$ ansible-playbook elk-playbook.yml`
 
   - Navigate to the Public IP of the ELK server and use port 5601 to load the Kibana site.   
-    http://13.77.179.205:5601/
+    Example: http://13.77.179.205:5601/
   - Once the site loads click on **Explore on my own** under **Let's get started**.
 ![ELK_kibana_home.png](Images/ELK_kibana_home.png)
 
@@ -122,11 +123,11 @@ SSH into the control node and follow the steps below:
 
   - Update the two items below in each beat-config.yml
     
-  - Include the private IP of the ELK server and use the default logon credentials under the Elasticsearch output. 
+  1. Include the private IP of the ELK server and use the default logon credentials under the Elasticsearch output. 
   
   *Note: Port 9200 may not be needed in the IP address since this is the default port.
 ![Filebeat_Config_01.png](Images/filebeat_config_01.png)
-  - Add the private IP of the ELK server under Kibana. 
+  1. Add the private IP of the ELK server under Kibana. 
   
   *Note: Port 5601 may not be needed in the IP address since this is the default port.
 ![Filebeat_Config_02.png](Images/filebeat_config_02.png)  
@@ -139,8 +140,8 @@ SSH into the control node and follow the steps below:
 
 - Return to the Kibana site for testing to ensure the beats installed correctly.  
 
-- Filebeat Status Check.
-  - Click the link **Add log data**.
+>Filebeat Status Check
+  - From the home page click the link **Add log data**.
   - Select **System Logs**.
   - Click on the **DEB** tab under **Getting Started**.
   - Scroll down to **Module Status** and click **Check Data**.
@@ -149,8 +150,8 @@ SSH into the control node and follow the steps below:
   - Click on **System logs dashboard** to see the system log data from the webservers. 
 ![Kibana_Filebeat_System_Module_Data.png](Images/Kibana_Filebeat_System_Module_Data.png)
 
-- Metricbeat Status Check.
-  - Click the link **Add metric data**.
+>Metricbeat Status Check
+  - From the home page click the link **Add metric data**.
   - Select **System metrics**.
   - Click on the **DEB** tab under **Getting Started**.
   - Scroll down to **Module Status** and click **Check Data**.
