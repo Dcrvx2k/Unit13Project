@@ -122,15 +122,15 @@ SSH into the control node and follow the steps below:
   `$ curl https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/files/metricbeat-config.yml` 
 
   - Update the two items below in each beat-config.yml
-    
-  1. Include the private IP of the ELK server and use the default logon credentials under the Elasticsearch output. 
+
+    1. Include the private IP of the ELK server and use the default logon credentials under the Elasticsearch output. 
   
-  *Note: Port 9200 may not be needed in the IP address since this is the default port.
-  ![Filebeat_Config_01.png](Images/filebeat_config_01.png)
-  2. Add the private IP of the ELK server under Kibana. 
+    *Note: Port 9200 may not be needed in the IP address since this is the default port.
+    ![Filebeat_Config_01.png](Images/filebeat_config_01.png)
+    2. Add the private IP of the ELK server under Kibana. 
   
-  *Note: Port 5601 may not be needed in the IP address since this is the default port.
-  ![Filebeat_Config_02.png](Images/filebeat_config_02.png)  
+    *Note: Port 5601 may not be needed in the IP address since this is the default port.
+    ![Filebeat_Config_02.png](Images/filebeat_config_02.png)  
 
   - From the `/etc/ansible/roles/` directory run the commands below to install each beat. 
     
