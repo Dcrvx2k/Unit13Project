@@ -99,6 +99,7 @@ SSH into the control node and follow the steps below:
 - Copy the desired playbook files from this README to `/etc/ansible/roles/`.
 
 
+
 >Setup ELK
   - From the `/etc/ansible/roles/` directory run the command below to setup the ELK server.
     
@@ -108,6 +109,7 @@ SSH into the control node and follow the steps below:
     Example: http://13.77.179.205:5601/
   - Once the site loads click on **Explore on my own** under **Let's get started**.
 ![ELK_kibana_home.png](Images/ELK_kibana_home.png)
+
 
 
 > Setup Filebeat and Metricbeat
@@ -127,7 +129,7 @@ SSH into the control node and follow the steps below:
   
   *Note: Port 9200 may not be needed in the IP address since this is the default port.
 ![Filebeat_Config_01.png](Images/filebeat_config_01.png)
-  1. Add the private IP of the ELK server under Kibana. 
+  2. Add the private IP of the ELK server under Kibana. 
   
   *Note: Port 5601 may not be needed in the IP address since this is the default port.
 ![Filebeat_Config_02.png](Images/filebeat_config_02.png)  
@@ -139,6 +141,8 @@ SSH into the control node and follow the steps below:
     Metricbeat: `$ ansible-playbook metricbeat-playbook.yml`
 
 - Return to the Kibana site for testing to ensure the beats installed correctly.  
+
+
 
 >Filebeat Status Check
   - From the home page click the link **Add log data**.
