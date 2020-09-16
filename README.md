@@ -110,7 +110,7 @@ SSH into the control node and follow the steps below:
 ![ELK_kibana_home.png](Images/ELK_kibana_home.png)
 
 
-**Setup Filebeat and Metricbeat**
+>**Setup Filebeat and Metricbeat**
   - Download the config files for the beats to `/etc/ansible/files/` using the `curl` commands below.
 
   **Filebeat** 
@@ -127,7 +127,7 @@ SSH into the control node and follow the steps below:
   
   *Note: Port 9200 may not be needed in the IP address since this is the default port.
   ![Filebeat_Config_01.png](Images/filebeat_config_01.png)
-  1. Add the private IP of the ELK server under Kibana. 
+  2. Add the private IP of the ELK server under Kibana. 
   
   *Note: Port 5601 may not be needed in the IP address since this is the default port.
   ![Filebeat_Config_02.png](Images/filebeat_config_02.png)  
