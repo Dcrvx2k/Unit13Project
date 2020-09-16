@@ -100,7 +100,7 @@ SSH into the control node and follow the steps below:
 
 
 
->Setup ELK
+  >Setup ELK
   - From the `/etc/ansible/roles/` directory run the command below to setup the ELK server.
     
     `$ ansible-playbook elk-playbook.yml`
@@ -112,7 +112,7 @@ SSH into the control node and follow the steps below:
 
 
 
-> Setup Filebeat and Metricbeat
+  > Setup Filebeat and Metricbeat
   - Download the config files for the beats to `/etc/ansible/files/` using the `curl` commands below.
 
   **Filebeat** 
@@ -128,11 +128,11 @@ SSH into the control node and follow the steps below:
   1. Include the private IP of the ELK server and use the default logon credentials under the Elasticsearch output. 
   
   *Note: Port 9200 may not be needed in the IP address since this is the default port.
-![Filebeat_Config_01.png](Images/filebeat_config_01.png)
-  2. Add the private IP of the ELK server under Kibana. 
+  ![Filebeat_Config_01.png](Images/filebeat_config_01.png)
+  1. Add the private IP of the ELK server under Kibana. 
   
   *Note: Port 5601 may not be needed in the IP address since this is the default port.
-![Filebeat_Config_02.png](Images/filebeat_config_02.png)  
+  ![Filebeat_Config_02.png](Images/filebeat_config_02.png)  
 
   - From the `/etc/ansible/roles/` directory run the commands below to install each beat. 
     
@@ -144,7 +144,7 @@ SSH into the control node and follow the steps below:
 
 
 
->Filebeat Status Check
+  >Filebeat Status Check
   - From the home page click the link **Add log data**.
   - Select **System Logs**.
   - Click on the **DEB** tab under **Getting Started**.
@@ -154,7 +154,7 @@ SSH into the control node and follow the steps below:
   - Click on **System logs dashboard** to see the system log data from the webservers. 
 ![Kibana_Filebeat_System_Module_Data.png](Images/Kibana_Filebeat_System_Module_Data.png)
 
->Metricbeat Status Check
+  >Metricbeat Status Check
   - From the home page click the link **Add metric data**.
   - Select **System metrics**.
   - Click on the **DEB** tab under **Getting Started**.
