@@ -123,11 +123,11 @@ SSH into the control node and follow the steps below:
 
   - Update the two items below in each beat-config.yml
 
-   - Include the private IP of the ELK server and use the default logon credentials under the Elasticsearch output. 
+  - Include the private IP of the ELK server and use the default logon credentials under the Elasticsearch output. 
   
   *Note: Port 9200 may not be needed in the IP address since this is the default port.
   ![Filebeat_Config_01.png](Images/filebeat_config_01.png)
-   - Add the private IP of the ELK server under Kibana. 
+  - Add the private IP of the ELK server under Kibana. 
   
   *Note: Port 5601 may not be needed in the IP address since this is the default port.
   ![Filebeat_Config_02.png](Images/filebeat_config_02.png)  
