@@ -54,6 +54,7 @@ A summary of the access policies in place can be found in the table below.
 | Web-2    | No                  | 10.0.1.4             |
 | Web-3    | No                  | 10.0.1.4             |
 | Red-ELK  | No                  | 10.0.1.4             |
+
 *This is the Local Machine IPv4 address and if the Local Machine IP changes the NSG rule will need to be updated with the new IP to allow SSH.
 
 ### Elk Configuration
