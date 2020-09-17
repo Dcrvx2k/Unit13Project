@@ -44,7 +44,7 @@ The machines on the internal network are not exposed to the public Internet. Rul
 Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP address: 68.8.1.25.  
 *This is the Local Machine IPv4 address and if the Local Machine IP changes the NSG rule will need to be updated with the new IP to allow SSH.
 
-Machines within the network can only be accessed by the Ansible container on the Jumpbox.
+Machines within the network can only be accessed by the Ansible container on the Jump Box.
 
 A summary of the access policies in place can be found in the table below.
 
@@ -58,7 +58,7 @@ A summary of the access policies in place can be found in the table below.
 
 ### Elk Configuration
 
-Ansible was used to automate the configuration of the ELK machine. No configuration was performed manually, which is advantageous because only a single set of instructions is needed to install and configure any number of virutal machines. Updates to the instruction set will update all virutal machines indentically. 
+Ansible was used to automate the configuration of the ELK machine. No configuration was performed manually, which is advantageous because only a single set of instructions is needed to install and configure any number of virtual machines. Updates to the instruction set will update all virtual machines identically. 
 
 The playbook implements the following tasks:
 - Install Docker
@@ -85,7 +85,7 @@ We have installed the following Beats on these machines:
 - Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- Filebeat collects log files from the web servers through a harvester and outputs the data to Kibana. In Kibana you can run search queires for specific logs and see visualization of common log formats.
+- Filebeat collects log files from the web servers through a harvester and outputs the data to Kibana. In Kibana you can run search queries for specific logs and see visualization of common log formats.
 - Metricbeat provides system and service details on the web servers to be viewed on Kibana. Examples of the data from Metricbeat are CPU, memory and file system usage; inbound and outbound traffic stats; and service status.
 
 ### Using the Playbook
@@ -93,7 +93,7 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 
-- The Ansible host file will need to be udpated to determine which web servers you wish install ELK and beats on. Update the host file with elk and webserver groups and add the private IP's to the respective group. Be sure to include the language interpreter line after each IP. 
+- The Ansible host file will need to be updated to determine which web servers you wish install ELK and beats on. Update the host file with elk and webserver groups and add the private IP's to the respective group. Be sure to include the language interpreter line after each IP. 
 ![Hosts_update.png](Images/Hosts_update.png)
 
 - Copy the desired playbook files from this README to `/etc/ansible/roles/`.
