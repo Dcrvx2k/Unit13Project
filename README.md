@@ -31,7 +31,7 @@ The configuration details of each machine may be found below.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.1.4   | Ubuntu 18.04     |
+| Jump_Box | Gateway  | 10.0.1.4   | Ubuntu 18.04     |
 | Web-1    |Web Server| 10.0.1.7   | Ubuntu 18.04     |
 | Web-2    |Web Server| 10.0.1.6   | Ubuntu 18.04     |
 | Web-3    |Web Server| 10.0.1.5   | Ubuntu 18.04     |
@@ -42,7 +42,6 @@ The configuration details of each machine may be found below.
 The machines on the internal network are not exposed to the public Internet. Rules are added to the Network Security Group (NSG) in Azure to control connections to the virtual machines.
 
 Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP address: 68.8.1.25.  
-*This is the Local Machine IPv4 address and if the Local Machine IP changes the NSG rule will need to be updated with the new IP to allow SSH.
 
 Machines within the network can only be accessed by the Ansible container on the Jump Box.
 
@@ -50,11 +49,12 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes                 | 68.8.1.25            |
+| Jump_Box | Yes                 | 68.8.1.25*           |
 | Web-1    | No                  | 10.0.1.4             |
 | Web-2    | No                  | 10.0.1.4             |
 | Web-3    | No                  | 10.0.1.4             |
-| ELK      | No                  | 10.0.1.4             |
+| Red-ELK  | No                  | 10.0.1.4             |
+*This is the Local Machine IPv4 address and if the Local Machine IP changes the NSG rule will need to be updated with the new IP to allow SSH.
 
 ### Elk Configuration
 
@@ -88,18 +88,18 @@ These Beats allow us to collect the following information from each machine:
 - Filebeat collects log files from the web servers through a harvester and outputs the data to Kibana. In Kibana you can run search queries for specific logs and see visualization of common log formats.
 - Metricbeat provides system and service details on the web servers to be viewed on Kibana. Examples of the data from Metricbeat are CPU, memory and file system usage; inbound and outbound traffic stats; and service status.
 
-### Using the Playbook
-In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
+### Using the Playbooks
+In order to use the playbooks, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
 
-- The Ansible host file will need to be updated to determine which web servers you wish install ELK and beats on. Update the host file with elk and webserver groups and add the private IP's to the respective group. Be sure to include the language interpreter line after each IP. 
+- The Ansible hosts file, located at `/etc/ansible/hosts`, will need to be updated to determine which web servers you wish install ELK and beats on. Update the hosts file with elk and webserver groups and add the private IP's to the respective group. Also, be sure to include the language interpreter line after each IP. 
 ![Hosts_update.png](Images/Hosts_update.png)
 
 - Copy the desired playbook files from this README to `/etc/ansible/roles/`.
 
 
-> **Setup ELK**
+**Setup ELK**
   - From the `/etc/ansible/roles/` directory run the command below to setup the ELK server.
     
     `$ ansible-playbook elk-playbook.yml`
@@ -110,7 +110,7 @@ SSH into the control node and follow the steps below:
 ![ELK_kibana_home.png](Images/ELK_kibana_home.png)
 
 
->**Setup Filebeat and Metricbeat**
+**Setup Filebeat and Metricbeat**
   - Download the config files for the beats to `/etc/ansible/files/` using the `curl` commands below.
 
   **Filebeat** 
