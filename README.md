@@ -109,6 +109,7 @@ SSH into the control node and follow the steps below:
   - Navigate to the Public IP of the ELK server and use port 5601 to load the Kibana site.   
     Example: http://13.77.179.205:5601/
   - Once the site loads click on **Explore on my own** under **Let's get started**.
+
 ![ELK_kibana_home.png](Images/ELK_kibana_home.png)
 
 
@@ -149,8 +150,11 @@ SSH into the control node and follow the steps below:
   - Click on the **DEB** tab under **Getting Started**.
   - Scroll down to **Module Status** and click **Check Data**.
   - You should see the success message below. 
+
 ![Filebeat_Success.png](Images/Filebeat_Success.png)  
+
   - Click on **System logs dashboard** to see the system log data from the webservers. 
+
 ![Kibana_Filebeat_System_Module_Data.png](Images/Kibana_Filebeat_System_Module_Data.png)
 
 **Metricbeat Status Check**
@@ -159,7 +163,10 @@ SSH into the control node and follow the steps below:
   - Click on the **DEB** tab under **Getting Started**.
   - Scroll down to **Module Status** and click **Check Data**.
   - You should see the success message below. 
+
 ![Metricbeat_Success.png](Images/Metricbeat_Success.png)
+
   - Click on **System metrics dashboard** to see the metric data from the webservers.
+
 ![Kibana_Metricbeat_Docker_Module_Data.png](Images/Kibana_Metricbeat_Docker_Module_Data.png) 
 
