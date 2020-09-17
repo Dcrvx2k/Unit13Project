@@ -95,6 +95,7 @@ In order to use the playbooks, you will need to have an Ansible control node alr
 SSH into the control node and follow the steps below:
 
 - The Ansible hosts file, located at `/etc/ansible/hosts`, will need to be updated to determine which web servers you wish install ELK and beats on. Update the hosts file with elk and webserver groups and add the private IP's to the respective group. Also, be sure to include the language interpreter line after each IP. 
+
 ![Hosts_update.png](Images/Hosts_update.png)
 
 - Copy the desired playbook files from this README to `/etc/ansible/roles/`.
